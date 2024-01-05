@@ -6,8 +6,6 @@ As you might imagine, there are often a large number of combinations of elements
 
 This tool is designed to split a piece of audio (e.g. a finished track) into an arbitrary number (>= 2) of noise stems, that is, stems that sound (almost) exactly like noise.
 
-For what is music, if not noise dancing in elegant synchrony?
-
 ## Installation
 
 With [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)/[miniconda](https://docs.conda.io/en/latest/miniconda.html):

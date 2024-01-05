@@ -15,21 +15,20 @@ c_handler.setFormatter(c_format)
 
 logger.addHandler(c_handler)
 
-B = np.int32(2**31 - 1)  # max bit depth represented in 32-bit - TODO fix clipping
+B = np.int16(2**15 - 1)  # max bit depth represented in 16-bit
 
 
 def load_sample(fp):
     """
-    Load a sample from a given file path (only tested with WAV files).
+    Load a sample from a given file path.
 
     Args:
-        fp (str): The file path of the sample.
+        fp (str): The file path of the sample - expects 16-bit WAV.
 
     Returns:
         tuple: A tuple containing the loaded samples and the sample rate.
     """
-    samples, sample_rate = sf.read(fp, dtype="int32")
-    samples = samples.astype(np.int64)  # to avoid overflow in interim calculations
+    samples, sample_rate = sf.read(fp, dtype="int16")
     return samples, sample_rate
 
 
@@ -132,13 +131,11 @@ def save_stems(stems, sample_rate, stem_directory, stem_name):
         stem_directory : pathlib.Path - Path to the directory where stems will be saved.
         stem_name : str - Name of the stem.
     """
-    stems = stems.astype(np.int32)
+    stems = stems.astype(np.int16)
 
     for i, stem in enumerate(stems):
         sf.write(
-            stem_directory / f"{stem_name} - {i+1:03d}.wav",
-            stem,
-            sample_rate,
+            stem_directory / f"{stem_name} - {i+1:03d}.wav", stem, sample_rate, "PCM_16"
         )
 
 

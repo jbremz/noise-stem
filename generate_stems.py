@@ -15,8 +15,7 @@ c_handler.setFormatter(c_format)
 
 logger.addHandler(c_handler)
 
-B = np.int32(2**31 - 1)  # max bit depth represented in 32-bit
-B -= 255  # anecdotally I've found that this correction is required to avoid clipping in a DAW (Ableton) - someone pls explain
+B = np.int32(2**31 - 1)  # max bit depth represented in 32-bit - TODO fix clipping
 
 
 def load_sample(fp):

@@ -32,6 +32,8 @@ python generate_stems.py <input_file> <output_directory> <n_stems>
 
 **Example:**
 
+First download the example samples from [here](https://drive.google.com/drive/folders/1gFuZkJT4phmA2gmj0hnOQNSGrXpyFDiP?usp=sharing) and put them into `samples/`.
+
 ```bash
 python generate_stems.py samples/amen_stereo.wav output 5
 ```

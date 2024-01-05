@@ -15,7 +15,8 @@ c_handler.setFormatter(c_format)
 
 logger.addHandler(c_handler)
 
-B = np.int32(2**31 - 1)  # max bit depth represented in 32-bit - TODO fix clipping
+B = np.int32(2**15 - 1)  # max bit depth represented in 16-bit
+B -= 2**14  # this seems to stop it from clipping - why though?
 
 
 def load_sample(fp):
@@ -28,8 +29,8 @@ def load_sample(fp):
     Returns:
         tuple: A tuple containing the loaded samples and the sample rate.
     """
-    samples, sample_rate = sf.read(fp, dtype="int32")
-    samples = samples.astype(np.int64)  # to avoid overflow in interim calculations
+    samples, sample_rate = sf.read(fp, dtype="int16")
+    # samples = samples.astype(np.int64)  # to avoid overflow in interim calculations
     return samples, sample_rate
 
 
@@ -132,13 +133,11 @@ def save_stems(stems, sample_rate, stem_directory, stem_name):
         stem_directory : pathlib.Path - Path to the directory where stems will be saved.
         stem_name : str - Name of the stem.
     """
-    stems = stems.astype(np.int32)
+    stems = stems.astype(np.int16)
 
     for i, stem in enumerate(stems):
         sf.write(
-            stem_directory / f"{stem_name} - {i+1:03d}.wav",
-            stem,
-            sample_rate,
+            stem_directory / f"{stem_name} - {i+1:03d}.wav", stem, sample_rate, "PCM_16"
         )
 
 

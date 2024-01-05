@@ -165,6 +165,7 @@ def main(
     samples, sample_rate = load_sample(input_file)
     stems = generate_stems(samples, N)
     validate_stems(stems, samples)
+    save_stems(stems, sample_rate, stem_directory, input_file.stem)
     logger.info(
         f"{N} noise stems generated for {input_file} saved to {stem_directory}/"
     )

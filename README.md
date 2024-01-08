@@ -1,10 +1,10 @@
 # Noise stem 😶‍🌫️
 
-In music production, it is fairly common practice to generate that you can layer together (sum) to generate the final track. Typically, each stem will represent a musical element e.g. drums, piano, guitar, vocals etc. The choice of which individual elements to group into which stems is generally down to the producer.
+In music production, it is fairly common practice to generate stems that you can layer together (sum) to generate the final track. Typically, each stem will represent a musical element e.g. drums, piano, guitar, vocals etc. The choice of which individual elements to group into which stems is generally down to the producer.
 
 As you might imagine, there are often a large number of combinations of elements to group into stems that you could choose. In fact, at a fundamental level, there are a _very_ large number of different stems that will still sum to produce the final track. We aren't even limited to what we might traditionally define as the "musical" elements.
 
-This tool is designed to split a piece of audio (e.g. a finished track) into an arbitrary number (>= 2) of noise stems, that is, stems that sound (almost) exactly like noise.
+This tool is designed to split a piece of audio (e.g. a finished track) into an arbitrary number (>= 2) of noise stems, that is, stems that sound (almost) exactly like noise. When layered together (e.g. as separate tracks on a DAW) they sum to recreate the original track perfectly ✨
 
 ## Installation
 
